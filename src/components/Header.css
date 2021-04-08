@@ -1,0 +1,26 @@
+header {
+  position: fixed;
+  width: 100%;
+  height: max-content;
+  padding: 2rem 3rem;
+  background-color: #ffffff00;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 999;
+}
+header::before {
+  content: "";
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 0;
+  transition: 0.3s;
+  background-color: #ce5d00;
+  z-index: -999;
+}
+header.animate::before {
+  height: 100%;
+}

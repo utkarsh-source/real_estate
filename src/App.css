@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  height: max-content;
+  width: 100%;
+  overflow: hidden;
+}
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 55%;
+  }
+}

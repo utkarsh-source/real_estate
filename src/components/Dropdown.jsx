@@ -35,16 +35,6 @@ cursor: pointer;
 }`
 
 function Dropdown({ toggle, setToggle }) {
-    const dropdownElem = useRef(null)
-    const handleClick = () => {
-            setToggle(!toggle)
-    }
-    useEffect(() => {
-        dropdownElem.current.addEventListener('click', handleClick)
-        return () => {
-            dropdownElem.current.removeEventListener('click', handleClick)
-        }
-    }, [])
     useEffect(() => {
         if (toggle) {
             document.documentElement.style.overflow = 'hidden';
@@ -53,15 +43,15 @@ function Dropdown({ toggle, setToggle }) {
         }
     }, [toggle])
     return (
-        <DropdownWrapper ref={dropdownElem} toggle={toggle}>
+        <DropdownWrapper onClick={()=>setToggle(!toggle)} toggle={toggle}>
             <Cancel />
-            <StyledLink smooth='true' style={style} to='home'>Home</StyledLink>
-            <StyledLink offset={-70} style={style} smooth='true' to='about'>About Us</StyledLink>
-            <StyledLink offset={-100} style={style} smooth='true' to='catagories'>Catagories</StyledLink>
-            <StyledLink smooth='true' style={style} to='properties'>Properties</StyledLink>
-            <StyledLink smooth='true' style={style} to='testimonial'>Testimonials</StyledLink>
-            <StyledLink smooth='true' style={style} to='agents'>Agents</StyledLink>
-            <Button as={StyledLink} smooth="true" style={style} to='contact'>Contact us</Button>
+            <StyledLink onClick={()=>setToggle(!toggle)} smooth='true' style={style} to='home'>Home</StyledLink>
+            <StyledLink onClick={()=>setToggle(!toggle)} offset={-70} style={style} smooth='true' to='about'>About Us</StyledLink>
+            <StyledLink onClick={()=>setToggle(!toggle)} offset={-100} style={style} smooth='true' to='catagories'>Catagories</StyledLink>
+            <StyledLink onClick={()=>setToggle(!toggle)} smooth='true' style={style} to='properties'>Properties</StyledLink>
+            <StyledLink onClick={()=>setToggle(!toggle)} smooth='true' style={style} to='testimonial'>Testimonials</StyledLink>
+            <StyledLink onClick={()=>setToggle(!toggle)} smooth='true' style={style} to='agents'>Agents</StyledLink>
+            <Button onClick={()=>setToggle(!toggle)} as={StyledLink} smooth="true" style={style} to='contact'>Contact us</Button>
        </DropdownWrapper>
     )
 }

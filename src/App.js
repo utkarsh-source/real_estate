@@ -13,9 +13,6 @@ import Footer from './components/Footer'
 
 function App() {
   const [toggle, setToggle] = useState(false)
-  const wrapper = useRef();
-    window.onscroll = () => { wrapper.current.classList.toggle('animate', window.scrollY>0)}
-
   return (
     <div className="App">
       < Header toggle={toggle} setToggle={setToggle} />

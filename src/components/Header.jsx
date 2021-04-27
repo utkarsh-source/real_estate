@@ -1,9 +1,9 @@
-import React, {useRef} from 'react'
+import React, {useEffect, useRef} from 'react'
 import styled from 'styled-components'
 import './Header.css'
 import { FaBars } from 'react-icons/fa'
 import Button from './Button'
-import {Link, animateScroll as scroll} from 'react-scroll'
+import {Link} from 'react-scroll'
 
 
 export const StyledLink = styled(Link)`
@@ -53,7 +53,9 @@ const Logo = styled.h2`
 
 function Header({ toggle, setToggle}) {
     const header = useRef()
-    window.onscroll = () => { header?.current?.classList.toggle('animate', window.scrollY)}
+    useEffect(() => {
+        window.onscroll = () => { header.current.classList.toggle('animate', window.scrollY > 0)} 
+    }, [])
     return (
         <header ref={header}>
             <Logo>ELIXR</Logo>
